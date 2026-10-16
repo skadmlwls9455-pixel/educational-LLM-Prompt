@@ -7,6 +7,8 @@ These prompts come from a capstone project that was later published:
 
 > H. Kim, **U. Nahm**, J. Cho, "Cyber Ethics Education Program Based on
 > Metaverse," *Proceedings of the KIICE Spring Conference 2025*, pp. 516–518.
+> Outstanding Paper Award, KIICE Spring Conference 2025
+> ([certificate](docs/kiice-2025-outstanding-paper-award.png), in Korean, May 23, 2025).
 
 The program is a multiplayer Unity world where students walk through
 scenarios on cyber violence and smartphone overuse and then post what they
