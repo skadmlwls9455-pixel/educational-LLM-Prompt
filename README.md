@@ -19,6 +19,12 @@ friendly NPC, and the reply appears in-game as a speech bubble.
 This repo contains the three NPC system prompts I wrote for that feedback
 step, in the original Korean and in English translation.
 
+The prompts were first drafted in Google Docs in November 2024 and were added
+to this repository later, so the repository's commit dates are more recent
+than the prompts themselves. A screenshot of the original document's version
+history (Korean, November 27–29, 2024) is in
+[docs/prompt-draft-version-history-2024-11.png](docs/prompt-draft-version-history-2024-11.png).
+
 ## The three NPCs
 
 | Topic | Korean original | English |
