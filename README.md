@@ -105,3 +105,6 @@ debugged an issue where chat history reset when moving between scenes.
 Development notes (Korean): [barrikate.tistory.com](https://barrikate.tistory.com)
 
 The Unity project is not included here; this repo contains the prompts only.
+
+## Copyright
+Copyright (c) 2026 Katherine Nahm (남의진). All rights reserved. See [LICENSE](LICENSE).
