@@ -92,7 +92,8 @@ implementation section:
   review (Unity → Google Form → Sheet) and reads them back into the game
 - **LLM feedback loop**, including these three prompts
 
-My teammate wrote the quiz and board content and the chat UI toggle.
+My teammate wrote the quiz and board content and the chat UI toggle, and
+debugged an issue where chat history reset when moving between scenes.
 Development notes (Korean): [barrikate.tistory.com](https://barrikate.tistory.com)
 
 The Unity project is not included here; this repo contains the prompts only.
