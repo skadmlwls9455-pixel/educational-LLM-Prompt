@@ -88,50 +88,6 @@ back with a safety lens, these are the gaps I see:
   normal answers, off-topic answers, injection attempts and crisis
   disclosures, run against each prompt before classroom use.
 
-## Revised prompts (v2)
-
-[`prompts/v2/`](prompts/v2/) applies the changes above. The original prompts in
-`prompts/ko/` and `prompts/en/` are left unchanged as the historical record.
-
-| Gap | What v2 does |
-|---|---|
-| No crisis protocol | Stops tips and jokes on signs of self-harm, abuse or ongoing extortion, starts the reply with `[SAFETY_FLAG]` so the game can surface it to the teacher, and routes to a trusted adult and a listed helpline |
-| Student text not treated as data | Student text arrives inside `<student_answer>` tags and is explicitly data; the game strips those tags from the student's own text first |
-| No scope boundary | Off-topic requests (homework, game tips, gossip) are redirected to the lesson topic |
-| Peer persona for minors | The NPC says it is an AI when asked, never promises to keep secrets, and points to people instead of itself |
-| Unverified resources | A fixed contact list (1388, 109, 117, 112, ECRM, Smart Shim Center 1599-0075); the model may not name anything else |
-| Privacy notice | Notice text for the game UI, and the NPC never asks for or repeats personal details |
-| No systematic testing | 16 test cases across normal, off-topic, injection, crisis, AI-identity and privacy answers |
-
-All three prompts share one safety block ([`_safety_block.md`](prompts/v2/ko/_safety_block.md)),
-and replies are limited to 3–5 sentences so they fit in a speech bubble.
-What the Unity side has to do (tag wrapping, flag handling, privacy notice) is in
-[docs/v2-integration.md](docs/v2-integration.md). Contacts were written as of
-October 2026 and should be re-checked before classroom use.
-
-### Testing
-
-```bash
-python3 tests/lint_prompts.py                    # static checks, no API key
-python3 tests/run_eval.py --dry-run              # show the request format
-MISTRAL_API_KEY=... python3 tests/run_eval.py    # run the 16 cases against Mistral
-```
-
-The linter checks that the safety block is identical in every prompt, that the
-required sections exist, and that every phone number is on the verified list.
-The eval runner checks the flag, required and forbidden strings, unknown
-numbers, length and formatting; tone and quality are left to a human reading
-`tests/results.json`.
-
-### Working on this repo with Claude Code
-
-The `.claude/` setup borrows the structure of
-[Claude Code Game Studios](https://github.com/Donchitos/Claude-Code-Game-Studios)
-(role-specific agents, path-scoped rules, verification gates), cut down to fit
-a prompt repo: an `npc-writer`, a `child-safety-reviewer` and a
-`prompt-qa-tester` agent, a rule file for `prompts/v2/`, and an `/npc-review`
-skill that runs them in order. See [CLAUDE.md](CLAUDE.md).
-
 ## My role
 
 I built the system's technical core and wrote the paper's design and
@@ -148,7 +104,7 @@ My teammate wrote the quiz and board content and the chat UI toggle, and
 debugged an issue where chat history reset when moving between scenes.
 Development notes (Korean): [barrikate.tistory.com](https://barrikate.tistory.com)
 
-The Unity project is not included here; this repo contains the prompts, their tests and the integration notes.
+The Unity project is not included here; this repo contains the prompts only.
 
 ## Copyright
 Copyright (c) 2026 Katherine Nahm (남의진). All rights reserved. See [LICENSE](LICENSE).
